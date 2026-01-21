@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.core.Direction;
 
-public class ExampleMod implements ModInitializer {
+public class SungerKirmaMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
@@ -35,6 +35,9 @@ public class ExampleMod implements ModInitializer {
 
             // Event diğer işlemler için devam etsin
             return InteractionResult.PASS;
+        });
+    }
+}            return InteractionResult.PASS;
         });
     }
 }
