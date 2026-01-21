@@ -11,7 +11,8 @@ public class SungerKirmaMod implements ModInitializer {
     @Override
     public void onInitialize() {
         AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
-            if (!world.isClientSide && world.getBlockState(pos).is(Blocks.SPONGE)) {
+            // Eskiden isClientSide, şimdi world.isClient() metodunu kullan
+            if (!world.isClient() && world.getBlockState(pos).is(Blocks.SPONGE)) {
                 world.destroyBlock(pos, true);
             }
             return InteractionResult.PASS;
