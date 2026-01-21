@@ -15,8 +15,6 @@ public class SungerKirmaMod implements ModInitializer {
     @Override
     public void onInitialize() {
         // AttackBlockCallback event'ini kaydet
-        // 5 parametreli versiyon (player, world, hand, pos, direction)
-        // Eğer build sırasında "hand" parametresi hatası verirse InteractionHand hand kısmını sil
         AttackBlockCallback.EVENT.register((Player player, Level world, InteractionHand hand, BlockPos pos, Direction direction) -> {
 
             // Server tarafında olduğumuzdan emin ol
@@ -25,7 +23,7 @@ public class SungerKirmaMod implements ModInitializer {
                 // Bloğun sünger olup olmadığını kontrol et
                 if (world.getBlockState(pos).is(Blocks.SPONGE)) {
 
-                    // Bloğu kır ve eşya düşür (true: particles ve ses çıkarır)
+                    // Bloğu kır ve eşya düşür
                     world.destroyBlock(pos, true);
 
                     // Bloğu kırdık, event burada biter
@@ -35,9 +33,6 @@ public class SungerKirmaMod implements ModInitializer {
 
             // Event diğer işlemler için devam etsin
             return InteractionResult.PASS;
-        });
-    }
-}            return InteractionResult.PASS;
-        });
+        }); // <--- lambda burası kapanıyor, fazladan parantez yok
     }
 }
